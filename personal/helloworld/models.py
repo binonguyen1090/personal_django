@@ -2,7 +2,16 @@ from django.db import models
 
 # Create your models here.
 class Student(models.Model):
-    first_name = models.CharField
-    last_name = models.CharField
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.last_name
     
+class Contact(models.Model):
+    email = models.EmailField(max_length=30)
+    subject = models.CharField(max_length=30)
+    message = models.TextField(max_length=196)
+
+    def __str__(self):
+        return self.email
